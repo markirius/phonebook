@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from django.views.generic import CreateView, DeleteView, UpdateView
 
 from apps.contacts.models import Contacts
 from apps.phones.models import Phones
@@ -22,3 +22,9 @@ class PhoneDelete(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+
+
+class PhoneUpdate(UpdateView):
+    model = Phones
+    fields = ["phone_number"]
+    success_url = reverse_lazy("contacts_list")
