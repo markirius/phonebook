@@ -1,0 +1,23 @@
+<h1>Phonebook</h1>
+<a href="{% url 'contact_create' %}">Add Contact</a>
+<ul>
+	{% for contact in contacts %}
+	<li>
+		<strong>{{ contact.name }}</strong>
+		<a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none">🗑</a>
+		<a href="{% url 'phone_create' contact.pk %}" style="text-decoration:none">✆</a>
+    {% for phone in contact.phones_set.all %}
+    <ul>
+      <li>
+        <small>{{ phone.phone_number }}</small>
+        <a href="{% url 'phone_delete' phone.pk %}" style="text-decoration:none">🗑</a>
+      </li>
+    </ul>
+    {% endfor %}
+	</li>
+	{% empty %}
+	<li>
+		Without contacts.
+	</li>
+	{% endfor %}
+</ul>
