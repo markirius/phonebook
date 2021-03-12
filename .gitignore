@@ -203,3 +203,4 @@ Thumbs.db #thumbnail cache on Windows
 ### other files ###
 .tool-versions
 .env
+__pycache__/
