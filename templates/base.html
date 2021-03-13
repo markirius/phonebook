@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phonebook</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.js' %}">
+
+</head>
+<body>
+  <header>
+    {% include "components/navbar.html" %}    
+  </header>
+  <main class="container mt-5">
+    <!-- block body -->
+    {% block body %}
+    {% endblock %}
+    <!-- endblock -->
+  </main>
+  <footer class="footer fixed-bottom">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+  </footer>
+</body>
+</html>

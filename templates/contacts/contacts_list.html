@@ -1,15 +1,18 @@
-<h1>Phonebook</h1>
+{% extends "base.html" %}
+{% block body %}
 <a href="{% url 'contact_create' %}">Add Contact</a>
 <ul>
-	{% for contact in contacts %}
+ 	{% for contact in contacts %}
 	<li>
 		<strong>{{ contact.name }}</strong>
-		<a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none;color:inherit">🗑</a>
 		<a href="{% url 'phone_create' contact.pk %}" style="text-decoration:none;color:inherit">✆</a>
+        <a href="{% url 'contact_update' contact.pk %}" style="text-decoration:none;color:inherit">♲</a>
+		<a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none;color:inherit">🗑</a>
     {% for phone in contact.phones_set.all %}
     <ul>
       <li>
         <small>{{ phone.phone_number }}</small>
+        <a href="{% url 'phone_update' phone.pk %}" style="text-decoration:none;color:inherit">♲</a>
         <a href="{% url 'phone_delete' phone.pk %}" style="text-decoration:none;color:inherit">🗑</a>
       </li>
     </ul>
@@ -21,3 +24,4 @@
 	</li>
 	{% endfor %}
 </ul>
+{% endblock %}
