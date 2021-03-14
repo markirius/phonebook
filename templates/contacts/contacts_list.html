@@ -1,27 +1,30 @@
 {% extends "base.html" %}
 {% block body %}
-<a href="{% url 'contact_create' %}">Add Contact</a>
-<ul>
- 	{% for contact in contacts %}
-	<li>
-		<strong>{{ contact.name }}</strong>
-		<a href="{% url 'phone_create' contact.pk %}" style="text-decoration:none;color:inherit">✆</a>
-        <a href="{% url 'contact_update' contact.pk %}" style="text-decoration:none;color:inherit">♲</a>
-		<a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none;color:inherit">🗑</a>
-    {% for phone in contact.phones_set.all %}
-    <ul>
-      <li>
-        <small>{{ phone.phone_number }}</small>
-        <a href="{% url 'phone_update' phone.pk %}" style="text-decoration:none;color:inherit">♲</a>
-        <a href="{% url 'phone_delete' phone.pk %}" style="text-decoration:none;color:inherit">🗑</a>
-      </li>
-    </ul>
-    {% endfor %}
-	</li>
-	{% empty %}
-	<li>
-		Without contacts.
-	</li>
-	{% endfor %}
-</ul>
+<div class="row">
+  {% for contact in contacts %}
+  <div class="col-sm-4">
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+        <strong>☺ {{ contact.name }}</strong>
+        <a href="{% url 'phone_create' contact.pk %}" style="text-decoration:none;color:inherit">✆</a>
+            <a href="{% url 'contact_update' contact.pk %}" style="text-decoration:none;color:inherit">♲</a>
+        <a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none;color:inherit">🗑</a>
+      </div>
+      <div class="card-body text-dark">
+        <p class="card-text">
+        {% for phone in contact.phones_set.all %}
+          <center>
+            <small>{{ phone.phone_number }}</small>
+            <a href="{% url 'phone_update' phone.pk %}" style="text-decoration:none;color:inherit">♲</a>
+            <a href="{% url 'phone_delete' phone.pk %}" style="text-decoration:none;color:inherit">🗑</a>
+          </center>
+        {% empty %}
+        <center><small>Without phones numbers</small></center>
+        {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
