@@ -27,3 +27,8 @@ class Phones(models.Model):
 
     def __str__(self):
         return self.phone_number
+
+    def save(self):
+        if Phones.objects.filter(phone_number=self.phone_number).exists():
+            return None
+        super(Phones, self).save()

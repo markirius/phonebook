@@ -9,6 +9,7 @@
         <a href="{% url 'phone_create' contact.pk %}" style="text-decoration:none;color:inherit">✆</a>
             <a href="{% url 'contact_update' contact.pk %}" style="text-decoration:none;color:inherit">♲</a>
         <a href="{% url 'contact_delete' contact.pk %}" style="text-decoration:none;color:inherit">🗑</a>
+        <small>{{ contact.email }}</small>
       </div>
       <div class="card-body text-dark">
         <p class="card-text">

@@ -6,13 +6,9 @@ from apps.contacts.models import Contacts
 
 class ContactCreate(CreateView):
     model = Contacts
-    fields = ["name"]
+    fields = ["name", "email"]
     success_url = reverse_lazy("contacts_list")
-
-    def form_valid(self, form):
-        # implement a solution for error messages to unique constraint error
-        form.instance.name = form.instance.name.title()
-        return super(ContactCreate, self).form_valid(form)
+    queryset = Contacts.objects.all().order_by("name")
 
 
 class ContactList(ListView):
@@ -29,9 +25,5 @@ class ContactDelete(DeleteView):
 
 class ContactUpdate(UpdateView):
     model = Contacts
-    fields = ["name"]
+    fields = ["name", "email"]
     success_url = reverse_lazy("contacts_list")
-
-    def form_valid(self, form):
-        form.instance.name = form.instance.name.title()
-        return super(UpdateView, self).form_valid(form)
