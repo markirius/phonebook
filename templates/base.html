@@ -6,8 +6,7 @@
   <title>Phonebook</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}">
+  <link type="text/css" rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
 
 </head>
 <body>
@@ -20,10 +19,12 @@
     {% endblock %}
     <!-- endblock -->
   </main>
-  <footer class="footer fixed-bottom">
-      <div class="container">
-        <span class="text-muted">{% now "Y" %} | markirius.github.io</span>
-      </div>
+  <footer class="bd-footer p-3 p-md-2 mt-5 bg-light text-center text-sm-start fixed-bottom">
+    <div class="container">
+      <ul class="bd-footer-links ps-0 mb-1 mt-1">
+        <li class="d-inline-block"><a href="https://github.com/markirius">GitHub</a></li>
+      </ul>
+    </div>
   </footer>
 </body>
 </html>
