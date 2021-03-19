@@ -152,3 +152,6 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 LOGIN_URL = 'login'
+
+# Custom Settings
+ADMIN_ENABLED = config("ADMIN_ENABLED", default=False, cast=bool)

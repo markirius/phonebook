@@ -14,8 +14,4 @@ urlpatterns = [
          name="contact_update"
          ),
     path("", ContactList.as_view(), name="contacts_list"),
-    path("change_language",
-         ContactList.change_language,
-         name="change_language"
-         )
 ]

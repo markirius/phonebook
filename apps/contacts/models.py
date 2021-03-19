@@ -24,6 +24,7 @@ class Contacts(models.Model):
     def save(self):
         self.name = self.name.title()
         self.email = self.email.lower()
-        if Contacts.objects.filter(name=self.name).exists():
+        if Contacts.objects.filter(name=self.name).exists() \
+                and Contacts.objects.filter(email=self.email).exists():
             return None
         super(Contacts, self).save()

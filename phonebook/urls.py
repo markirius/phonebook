@@ -13,19 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import include, path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+from phonebook.settings import ADMIN_ENABLED
 
-urlpatterns += i18n_patterns(
+urlpatterns = [
     path("phones/", include("apps.phones.urls")),
     path("", include("apps.contacts.urls")),
-    path("login", LoginView.as_view(), name="login"),
-    path("logout", LogoutView.as_view(), name="logout"),
-    prefix_default_language=False
-)
+    path("login/", LoginView.as_view(), name="login"),
+    path("logout/", LogoutView.as_view(), name="logout"),
+]
+
+if ADMIN_ENABLED:
+    urlpatterns += [
+        path('admin/', admin.site.urls),
+    ]
