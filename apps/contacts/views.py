@@ -12,7 +12,6 @@ class ContactCreate(LoginRequiredMixin, CreateView):
     model = Contacts
     fields = ["name", "email"]
     success_url = reverse_lazy("contacts_list")
-    queryset = Contacts.objects.all().order_by("name")
 
 
 class ContactList(ListView):
@@ -32,8 +31,10 @@ class ContactList(ListView):
                     redirect_path = '/'
                 else:
                     return response
+                from django.utils import translation
                 translation.activate(language)
                 response = HttpResponseRedirect(redirect_path)
+                #response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
         return response
 
 

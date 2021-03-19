@@ -23,6 +23,7 @@ class Contacts(models.Model):
 
     def save(self):
         self.name = self.name.title()
+        self.email = self.email.lower()
         if Contacts.objects.filter(name=self.name).exists():
             return None
         super(Contacts, self).save()
