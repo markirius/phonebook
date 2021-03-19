@@ -21,7 +21,7 @@ class ContactList(ListView):
     queryset = Contacts.objects.all().order_by("name")
     context_object_name = "contacts"
 
-    def change_language(request):
+    def change_language(request):  # TODO: Work on redirects
         response = HttpResponseRedirect('/')
         if request.method == 'POST':
             language = request.POST.get('language')
@@ -29,10 +29,7 @@ class ContactList(ListView):
                 if language != settings.LANGUAGE_CODE and [lang for lang in settings.LANGUAGES if lang[0] == language]:
                     redirect_path = f'/{language}/'
                 elif language == settings.LANGUAGE_CODE:
-                    # redirect_path = '/'
-                    redirect_path = request.META.get("HTTP_REFERER")
-                    import pdb
-                    pdb.set_trace()
+                    redirect_path = '/'
                 else:
                     return response
                 translation.activate(language)
