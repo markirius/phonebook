@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<div class="container">
+  <ul class="bd-footer-links ps-0 mb-1 mt-1" style="padding-left: 0px;">
+    {% if user.is_authenticated %}
+    <li class="d-inline-block"><a class="text-secondary" href="https://github.com/markirius">{% trans "Hi" %} {{ user }}, {% trans "visit my GitHub" %} </a></li>
+    {% else %}
+    <li class="d-inline-block"><a class="text-secondary" href="https://github.com/markirius">GitHub</a></li>
+    {% endif %}
+  </ul>
+</div>

@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, UpdateView
 
@@ -5,7 +6,7 @@ from apps.contacts.models import Contacts
 from apps.phones.models import Phones
 
 
-class PhoneCreate(CreateView):
+class PhoneCreate(LoginRequiredMixin, CreateView):
     model = Phones
     fields = ["phone_number"]
     success_url = reverse_lazy("contacts_list")
@@ -16,7 +17,7 @@ class PhoneCreate(CreateView):
         return super(PhoneCreate, self).form_valid(form)
 
 
-class PhoneDelete(DeleteView):
+class PhoneDelete(LoginRequiredMixin, DeleteView):
     model = Phones
     success_url = reverse_lazy("contacts_list")
 
@@ -24,7 +25,7 @@ class PhoneDelete(DeleteView):
         return self.post(request, *args, **kwargs)
 
 
-class PhoneUpdate(UpdateView):
+class PhoneUpdate(LoginRequiredMixin, UpdateView):
     model = Phones
     fields = ["phone_number"]
     success_url = reverse_lazy("contacts_list")
