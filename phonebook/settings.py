@@ -91,13 +91,6 @@ DATABASES = {
         cast=db_url
     )
 }
-# DATABASES = {
-#     'default': env.databases(),
-#     'extra': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 
 # Password validation
@@ -122,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = config("LANGUAGE_CODE", default="pt-br")
+LANGUAGE_CODE = config("LANGUAGE_CODE", default="en-us")
 
 LANGUAGES = [
         ("pt-br", "Brazilian Portuguese"),
