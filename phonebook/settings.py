@@ -44,8 +44,11 @@ INSTALLED_APPS = [
 
     "apps.phones",
     "apps.contacts",
-    "django_extensions",
+    # "django_extensions",
 ]
+
+if config("DEVELOPMENT", default=False, cast=bool):
+    INSTALLED_APPS += ["django_extensions"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

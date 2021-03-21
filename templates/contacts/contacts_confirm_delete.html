@@ -5,6 +5,7 @@
 <form method="post">
   {% csrf_token %}
 	<p>{% trans "Are you sure you want to delete this contact" %} "<strong>{{ object }}</strong>"?</p>
-  <input type="submit" value="Confirm" class="btn btn-danger">
+  <input type="submit" value="{% trans 'Confirm' %}" class="btn btn-danger">
+  <input type="button" value="{% trans 'Cancel' %}" class="btn btn-secondary" onClick="window.location.href='/'">
 </form>
 {% endblock %}
