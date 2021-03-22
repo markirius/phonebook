@@ -25,6 +25,7 @@ urlpatterns = [
     path("", include("apps.contacts.urls")),
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", LogoutView.as_view(), name="logout"),
+    path("core/", include("apps.core.urls")),
 ]
 
 if ADMIN_ENABLED:

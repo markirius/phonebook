@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     "apps.phones",
     "apps.contacts",
+    "apps.core",
     # "django_extensions",
 ]
 

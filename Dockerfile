@@ -3,8 +3,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apk update && \
     apk add --no-cache --virtual .build-deps \
-    build-base gcc python3-dev musl-dev \
-    postgresql-dev bash
+    build-base gcc python3-dev musl-dev bash
 
 RUN pip install pipenv psycopg2
 
@@ -15,7 +14,8 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONPATH /app:$PYTHONPATH
 
-COPY --from=base /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages
+COPY --from=base /usr/local/lib/python3.9/site-packages/ \
+/usr/local/lib/python3.9/site-packages
 COPY --from=base /usr/local/bin/ /usr/local/bin/
 COPY --from=base /usr/bin/ /usr/bin/
 
