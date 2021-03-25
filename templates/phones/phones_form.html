@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends "base_form.html" %}
 {% load i18n %}
 
-{% block body %}
-<div class="row ml-sm-5 mx-auto">
-	<h2>{% trans "Add Phone Number" %}</h2>
-</div>
+{% block formtitle %}
+<h2><strong>{% trans "Add Phone Number" %}</strong></h2>
+{% endblock %}
+
+{% block form %}
 <div class="row ml-sm-5 mt-5 mx-auto">
 	<form action="" method="post">
 		{% csrf_token %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div class="container">
+  <div class="text-center">
+		{% block formtitle %} 
+		{% endblock %}
+  </div>
+  <div class="row">
+    <div class="col mx-auto">
+      {% block form %}
+      {% endblock %}
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 mx-auto">
+        <div class="text-danger">{{ form.non_field_errors }}</div>
+        {% for field in form %}
+        <div class="text-danger">
+          {{ field.error }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
