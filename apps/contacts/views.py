@@ -22,8 +22,7 @@ class ContactList(ListView):
         query = self.request.GET.get("q")
         if query:
             object_list = Contacts.objects.filter(
-                    # Q(name__icontains=query) |
-                    Q(contact_phone__contains=query)
+                    Q(name__icontains=query)
             )
             return object_list
         return self.queryset
