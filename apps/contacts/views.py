@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
@@ -16,6 +17,16 @@ class ContactList(ListView):
     paginate_by = 6
     queryset = Contacts.objects.all().order_by("name")
     context_object_name = "contacts"
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        if query:
+            object_list = Contacts.objects.filter(
+                    # Q(name__icontains=query) |
+                    Q(contact_phone__contains=query)
+            )
+            return object_list
+        return self.queryset
 
 
 class ContactDelete(LoginRequiredMixin, DeleteView):

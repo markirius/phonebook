@@ -14,4 +14,5 @@ urlpatterns = [
          name="contact_update"
          ),
     path("", ContactList.as_view(), name="contacts_list"),
+    path("", ContactList.get_queryset, name="contacts_search"),
 ]

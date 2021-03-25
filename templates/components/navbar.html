@@ -11,9 +11,16 @@
 			{% endif %}
     </ul>
   </div>
-	{% if user.is_authenticated %}
-	<a class=" d-lg-inline-block my-2 my-md-0 ms-md-3 btn btn-outline-light" href="{% url 'logout' %}">{% trans "Logout" %}</a>
-	{% else %}
-	<a class=" d-lg-inline-block my-2 my-md-0 ms-md-3 btn btn-outline-light" href="{% url 'login' %}">{% trans "Login" %}</a>
-	{% endif %}
+  <div>
+    <form action="{% url 'contacts_search' %}" method="get">
+      <input name="q" type="text" placeholder="{% trans 'Search' %}...">
+    </form>
+  </div>
+  <div class="ml-2">
+    {% if user.is_authenticated %}
+    <a class=" d-lg-inline-block my-2 my-md-0 ms-md-3 btn btn-outline-light" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+    {% else %}
+    <a class=" d-lg-inline-block my-2 my-md-0 ms-md-3 btn btn-outline-light" href="{% url 'login' %}">{% trans "Login" %}</a>
+    {% endif %}
+  </div>
 </nav>
