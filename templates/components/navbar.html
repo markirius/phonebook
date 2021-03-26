@@ -5,9 +5,16 @@
   <div class="navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
 			{% if user.is_authenticated %}
-      <li class="nav-item active">
-				<a class="nav-link" href="{% url 'contact_create' %}">{% trans "Add Contact" %}</a>
-      </li>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle active" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {% trans "Actions" %}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				  <a class="dropdown-item" href="{% url 'contact_create' %}">{% trans "Add Contact" %}</a>
+				  <a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Password Change" %}</a>
+          <a class="dropdown-item" href="#">{% trans "Registered Users" %}</a>
+        </div>
+      </div>
 			{% endif %}
     </ul>
   </div>

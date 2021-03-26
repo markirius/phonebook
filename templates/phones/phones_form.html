@@ -6,11 +6,18 @@
 {% endblock %}
 
 {% block form %}
-<div class="row ml-sm-5 mt-5 mx-auto">
-	<form action="" method="post">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value={%trans "Save"%} class="btn btn-primary">
-	</form>
-</div>
+<form method="post" class="mt-4">
+  {% csrf_token %}
+  <div class="form-group row">
+    <label class="col-sm-6 col-form-label text-center text-sm-right">{{ form.phone_number.label }}:</label>
+    <div class="col-sm-6 text-center text-sm-left">
+      {{ form.phone_number }}
+    </div>
+  </div>
+  <div class="form-group row mt-5">
+    <div class="col text-center">
+    <button class="btn btn-secondary" type="submit">{% trans "Save" %}</button>
+    </div>
+  </div>
+</form>
 {% endblock %}

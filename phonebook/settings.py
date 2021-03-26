@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "apps.phones",
     "apps.contacts",
     "apps.core",
-    # "django_extensions",
 ]
 
 if config("DEVELOPMENT", default=False, cast=bool):
