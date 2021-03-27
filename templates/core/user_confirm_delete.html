@@ -10,13 +10,13 @@
   {% csrf_token %}
 	<div class="form-group row">
 		<div class="col col-sm-8 mx-auto text-center">
-			<p>{% trans "Are you sure you want to delete this contact" %} "<strong>{{ object }}</strong>"?</p>
+			<p>{% trans "Are you sure you want to delete this user" %} "<strong>{{ object }}</strong>"?</p>
 		</div>
 	</div>
 	<div class="form-group row mt-5">
 		<div class="col text-center">
 			<input type="submit" value="{% trans 'Confirm' %}" class="btn btn-danger align-left">
-			<input type="button" value="{% trans 'Cancel' %}" class="btn btn-secondary align-right" onClick="window.location.href='/'">
+			<input type="button" value="{% trans 'Cancel' %}" class="btn btn-secondary align-right" onClick="window.location.href='{% url "users" %}'">
 		</div>
 	</div>
 </form>
