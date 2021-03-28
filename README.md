@@ -5,8 +5,8 @@
 - Work's with sqlite or postgres databases
 
 - Build with:
-* python 3.9.2
-* django 2.2.19
+  - python 3.9.2
+  - django 2.2.19
 
 ## Decouple .env file
 
