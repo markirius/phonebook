@@ -11,17 +11,24 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				  <a class="dropdown-item" href="{% url 'contact_create' %}">{% trans "Add Contact" %}</a>
-				  <a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Password Change" %}</a>
           <a class="dropdown-item" href="{% url 'users' %}">{% trans "Registered Users" %}</a>
+          <a class="dropdown-item" href="{% url 'user_create' %}">{% trans "Add User" %}</a>
+				  <a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Password Change" %}</a>
         </div>
       </div>
 			{% endif %}
     </ul>
   </div>
   <div>
+    {% if request.path == '/core/users/' %}
+    <form action="{% url 'users_search' %}" method="get">
+      <input name="q" type="text" placeholder="{% trans 'Search' %}...">
+    </form>
+    {% else %}
     <form action="{% url 'contacts_search' %}" method="get">
       <input name="q" type="text" placeholder="{% trans 'Search' %}...">
     </form>
+    {% endif %}
   </div>
   <div class="ml-2">
     {% if user.is_authenticated %}

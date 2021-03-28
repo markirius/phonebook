@@ -15,7 +15,9 @@
 	</div>
 	<div class="form-group row mt-5">
 		<div class="col text-center">
+      {% if object.pk != request.user.pk %}
 			<input type="submit" value="{% trans 'Confirm' %}" class="btn btn-danger align-left">
+      {% endif %}
 			<input type="button" value="{% trans 'Cancel' %}" class="btn btn-secondary align-right" onClick="window.location.href='{% url "users" %}'">
 		</div>
 	</div>

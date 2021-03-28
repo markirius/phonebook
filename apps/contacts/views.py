@@ -25,7 +25,7 @@ class ContactList(ListView):
                     Q(name__icontains=query) |
                     Q(email__icontains=query) |
                     Q(contact_phone__phone_number__icontains=query)
-            )
+            ).order_by("name")
             return object_list
         return self.queryset
 
