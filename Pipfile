@@ -11,6 +11,7 @@ django = "~=2.2.19"
 
 [dev-packages]
 django-extensions = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.9"
