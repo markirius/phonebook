@@ -16,6 +16,9 @@
 | LANGUAGE_CODE | en-us | string |
 | DEVELOPMENT | False | boolean |
 
+- You can generate .env file using:
+```python contrib/make_env.py```
+
 ## Using postgresql
 
 - Setting DATABASE_URL like:
