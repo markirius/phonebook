@@ -2,7 +2,7 @@
 
 - A simple project for education purpose
 
-- Work's with sqlite or postgres databases
+- Work with sqlite or postgres databases
 
 - Build with:
   - python 3.9.2
