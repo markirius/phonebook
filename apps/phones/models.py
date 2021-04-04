@@ -30,9 +30,9 @@ class Phones(models.Model):
     def __str__(self):
         return self.phone_number
 
-    def save(self):
+    def save(self, force_insert=False, using=None):
         if Phones.objects.filter(phone_number=self.phone_number).exists():
-            return None
+            return Phones.objects.none()
         if self.phone_number == "":
-            return None
-        super(Phones, self).save()
+            return Phones.objects.none()
+        super(Phones, self).save(force_insert, using)
