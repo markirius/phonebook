@@ -28,3 +28,6 @@ class PhonesTest(BaseTest):
     def test_exist_number(self):
         self.phone = baker.make(Phones, phone_number="+558299999999")
         self.assertIsNone(self.phone.pk)
+
+    def test_form_valid(self):
+        pass
