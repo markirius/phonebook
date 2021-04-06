@@ -1,14 +1,10 @@
-from random import randint
-
 from django.contrib.auth.models import User
-from django.test import RequestFactory, TestCase
+from django.test import TestCase
 from django.urls import reverse
 from model_bakery import baker
 
 from apps.contacts.models import Contacts
 from apps.phones.models import Phones
-
-factory = RequestFactory()
 
 
 class BaseTest(TestCase):
