@@ -7,7 +7,7 @@ from apps.contacts.models import Contacts
 from apps.core.views import UserListView
 from apps.phones.models import Phones
 
-request_factoru = RequestFactory()
+request_factory = RequestFactory()
 
 
 class BaseTest(TestCase):
@@ -26,7 +26,7 @@ class BaseTest(TestCase):
 
 class CoreTest(BaseTest):
     def test_search_user(self):
-        request = request_factoru.get(
+        request = request_factory.get(
                 reverse("users_search"),
                 {"q": self.user.username}
             )
@@ -37,7 +37,7 @@ class CoreTest(BaseTest):
         self.assertEqual(str(qs), str(query))
 
     def test_search_user_none(self):
-        request = request_factoru.get(
+        request = request_factory.get(
                 reverse("users_search"),
             )
         view = UserListView()
