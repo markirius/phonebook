@@ -21,10 +21,10 @@ class Contacts(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self):
+    def save(self, force_insert=False, using=None):
         self.name = self.name.title()
         self.email = self.email.lower()
         if Contacts.objects.filter(name=self.name).exists() \
                 and Contacts.objects.filter(email=self.email).exists():
-            return None
+            return Contacts.objects.none()
         super(Contacts, self).save()
